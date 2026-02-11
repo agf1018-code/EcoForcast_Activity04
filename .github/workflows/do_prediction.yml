@@ -16,6 +16,10 @@ jobs:
           
 # Point to the right path, run the right Rscript command
       - name: Install rMR package
-        run: R -e "install.packages('remotes'); remotes::install_github('jyliu3/rMR')"
+        env:
+          GITHUB_PAT: ${{ secrets.GITHUB_PAT }}
+        run: |
+          R -e "install.packages('remotes')"
+          R -e "remotes::install_github('jyliu3/rMR')"
       - name: Run automatic prediction file
         run: Rscript Main.R 
