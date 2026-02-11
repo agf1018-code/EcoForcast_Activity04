@@ -17,7 +17,7 @@ jobs:
 # Point to the right path, run the right Rscript command
       - name: Install rMR package
         env:
-          GITHUB_PAT: ${{ secrets.GITHUB_PAT }}
+          GITHUB_PAT: ${{ secrets.GH_PAT }}
         run: |
           R -e "install.packages('remotes')"
           R -e "remotes::install_github('jyliu3/rMR')"
